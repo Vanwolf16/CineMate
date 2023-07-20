@@ -3,7 +3,10 @@
 export default function MovieList() {
   return (
     <main>
-      MovieList
+        <div className="text-9xl bg-emerald-400">
+        MovieList
+        </div>
+      
     </main>
   )
 }
