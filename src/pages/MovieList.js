@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
+import  {useFetch}  from "../hooks/useFetch";
 
-export default function MovieList() {
 
-  const [movies,setMovies] = useState([]);
+export default function MovieList({apiPath}){
 
-  useEffect( () => {
-    async function fetchMovies(){
-      const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=089969fe07c408b75ad164158596950e");
-      const data = await response.json();
-      setMovies(data.results)
-    }
-    fetchMovies();
-  }, [])
+  //const [movies,setMovies] = useState([]);
+  const {data: movies} = useFetch(apiPath);
+ 
 
   return (
     <main>
